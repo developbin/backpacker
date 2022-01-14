@@ -1,7 +1,7 @@
 package com.backpacker.homework.generator;
 
 import com.backpacker.homework.code.ApiResponseCode;
-import com.backpacker.homework.response.ApiResponse;
+import com.backpacker.homework.common.response.ApiResponse;
 
 public class ApiResponseGenerator {
 

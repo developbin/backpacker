@@ -2,7 +2,7 @@ package com.backpacker.homework.exception;
 
 import com.backpacker.homework.code.ApiResponseCode;
 import com.backpacker.homework.generator.ApiResponseGenerator;
-import com.backpacker.homework.response.ApiResponse;
+import com.backpacker.homework.common.response.ApiResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

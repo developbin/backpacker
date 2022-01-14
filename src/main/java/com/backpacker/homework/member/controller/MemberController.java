@@ -8,7 +8,7 @@ import com.backpacker.homework.member.dto.MemberDto;
 import com.backpacker.homework.member.dto.MemberRequestDto;
 import com.backpacker.homework.member.dto.MemberLoginRequestDto;
 import com.backpacker.homework.member.service.MemberService;
-import com.backpacker.homework.response.ApiResponse;
+import com.backpacker.homework.common.response.ApiResponse;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -25,7 +25,7 @@ import java.util.*;
 @Slf4j
 @RestController
 @Api(tags = {"회원 API"})
-@RequestMapping("/v1/member")
+@RequestMapping("/v1/members")
 public class MemberController {
 
     private final JwtAuthenticationProvider jwtAuthenticationProvider;
@@ -79,6 +79,5 @@ public class MemberController {
         ApiResponse<MemberDto> apiResponse = ApiResponseGenerator.success(memberDto);
         return ResponseEntity.ok(apiResponse);
     }
-
 
 }

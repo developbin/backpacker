@@ -1,4 +1,4 @@
-package com.backpacker.homework.response;
+package com.backpacker.homework.common.response;
 
 import com.backpacker.homework.code.ApiResponseCode;
 import lombok.Getter;
