@@ -8,8 +8,9 @@ CREATE TABLE order_master (
 	member_id  	 	   bigint        	   NOT NULL                COMMENT '회원 id',
 	payment_datetime   datetime        	   NOT NULL                COMMENT '결제일시',
 	create_datetime   datetime        	   NOT NULL                COMMENT '생성일시',
+	UNIQUE KEY uk_order_no (order_no),
     CONSTRAINT pk_order PRIMARY KEY (order_id)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='주문';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='주문';
 
 #-----------------------------------------------------------------------------------------------------------------------
 #-- Table 명 : member (회원)
@@ -24,4 +25,4 @@ CREATE TABLE member (
   gender              varchar(1)           NOT NULL                COMMENT '성별',
   created_datetime    datetime             NOT NULL                COMMENT '등록일자',
   CONSTRAINT pk_member PRIMARY KEY (member_id)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='회원 정보'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='회원 정보'
