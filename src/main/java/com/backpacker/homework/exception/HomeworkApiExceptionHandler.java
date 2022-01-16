@@ -33,4 +33,34 @@ public class HomeworkApiExceptionHandler {
         return new ResponseEntity<>(apiResponse, HttpStatus.BAD_REQUEST);
     }
 
+    /**
+     * 비밀번호가 잘못된 경우
+     */
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(UnMatchedPasswordException.class)
+    public ResponseEntity<ApiResponse> handleException(UnMatchedPasswordException e) {
+        String message = e.getMessage();
+
+        log.error("ApiExceptionHandler > UnMatchedPasswordException > userMessage:{}", message);
+        log.error("ApiExceptionHandler > UnMatchedPasswordException > errorMessage:{}", e.getMessage());
+
+        ApiResponse apiResponse = ApiResponseGenerator.fail(ApiResponseCode.BAD_REQUEST_ERROR, message);
+        return new ResponseEntity<>(apiResponse, HttpStatus.BAD_REQUEST);
+    }
+
+    /**
+     * 이메일이 존재하지 않은 경우
+     */
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(NotExistEmailException.class)
+    public ResponseEntity<ApiResponse> handleException(NotExistEmailException e) {
+        String message = e.getMessage();
+
+        log.error("ApiExceptionHandler > NotExistEmailException > userMessage:{}", message);
+        log.error("ApiExceptionHandler > NotExistEmailException > errorMessage:{}", e.getMessage());
+
+        ApiResponse apiResponse = ApiResponseGenerator.fail(ApiResponseCode.BAD_REQUEST_ERROR, message);
+        return new ResponseEntity<>(apiResponse, HttpStatus.BAD_REQUEST);
+    }
+
 }

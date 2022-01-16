@@ -11,6 +11,8 @@ import lombok.ToString;
 @NoArgsConstructor
 public class MemberDto {
 
+    private Long memberId;
+
     private String email;
 
     private String name;
@@ -22,11 +24,13 @@ public class MemberDto {
     private Gender gender;
 
     @Builder
-    public MemberDto(String email,
+    public MemberDto(Long memberId,
+                     String email,
                      String name,
                      String nickName,
                      String telNumber,
                      Gender gender) {
+        this.memberId = memberId;
         this.email = email;
         this.name = name;
         this.nickName = nickName;

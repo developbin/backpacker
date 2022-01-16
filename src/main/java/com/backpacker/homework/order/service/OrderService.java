@@ -21,6 +21,12 @@ public class OrderService {
         this.orderRepository = orderRepository;
     }
 
+    public PageResponse<OrderDto> findOrderMemberList(Long memberId,
+                                                      PagingOption pagingOption){
+        Page<OrderDto> orderMemberPage = orderRepository.findOrderMemberList(memberId, PageableConverter.convert(pagingOption));
+        return PageResponseConverter.convert(orderMemberPage);
+    }
+
     public PageResponse<OrderDto> findOrderList(OrderSearchOption orderSearchOption,
                                                 PagingOption pagingOption){
         Page<OrderDto> orderPage = orderRepository.findOrderList(orderSearchOption, PageableConverter.convert(pagingOption));

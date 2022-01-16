@@ -32,6 +32,8 @@ V1_schema_sample_test.sql 파일 참조
 * 도커 mysql, redis 실행 및 정상동작 필수입니다.
 * 회원가입 API 로 생성후에 해당 액세스토큰을 발급하여 테스트를 권고합니다.
    > 회원가입 > 액세스토큰 발급 > 회원 상세 정보 > 주문 정보 > 로그아웃
+* 액세스토큰은 Authorization Bearer Token 으로 기입하여 api 통신합니다.
+   > 회원정보, 단일회원주문, 여러회원주문, 로그아웃 API
 * 스키마 샘플 테스트 sql 관련
    > V1_schema_sample_test.sql 로 데이터를 생성한 경우 test1@naver.com 에 비밀번호는 tt1132 입니다.
    > 패스워드 값의 제약 개발하기 이전에 만들어진 패스워드 입니다.

@@ -14,6 +14,7 @@ public class MemberDtoConverter {
         }
 
         return MemberDto.builder()
+                .memberId(memberEntity.getMemberId())
                 .name(memberEntity.getName())
                 .nickName(memberEntity.getNickname())
                 .telNumber(memberEntity.getTelNumber())

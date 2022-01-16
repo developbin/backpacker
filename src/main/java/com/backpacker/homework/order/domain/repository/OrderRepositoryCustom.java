@@ -7,6 +7,7 @@ import org.springframework.data.domain.Pageable;
 
 public interface OrderRepositoryCustom {
 
+    Page<OrderDto> findOrderMemberList(Long memberId, Pageable pageable);
     Page<OrderDto> findOrderList(OrderSearchOption orderSearchOption, Pageable pageable);
 
 }

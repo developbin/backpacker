@@ -23,6 +23,27 @@ public class OrderRepositoryCustomImpl extends QuerydslRepositorySupport impleme
     }
 
     @Override
+    public Page<OrderDto> findOrderMemberList(Long memberId, Pageable pageable) {
+        JPAQueryFactory queryFactory = new JPAQueryFactory(getEntityManager());
+
+        JPAQuery<OrderDto> query = queryFactory.select(
+                new QOrderDto(
+                        orderEntity.orderId.as("orderId"),
+                        orderEntity.orderNo.as("orderNo"),
+                        orderEntity.memberId.as("memberId"),
+                        memberEntity.name.as("name"),
+                        memberEntity.email.as("email")
+                )
+        ).from(memberEntity)
+            .innerJoin(orderEntity)
+                .on(memberEntity.memberId.eq(orderEntity.memberId)
+                .and(memberEntity.memberId.eq(memberId)));
+
+        List<OrderDto> orderDtoList = getQuerydsl().applyPagination(pageable, query).fetch();
+        return new PageImpl<>(orderDtoList, pageable, query.fetchCount());
+    }
+
+    @Override
     public Page<OrderDto> findOrderList(OrderSearchOption orderSearchOption, Pageable pageable) {
         JPAQueryFactory queryFactory = new JPAQueryFactory(getEntityManager());
 

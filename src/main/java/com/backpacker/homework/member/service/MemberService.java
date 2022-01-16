@@ -1,6 +1,8 @@
 package com.backpacker.homework.member.service;
 
 import com.backpacker.homework.component.JwtAuthenticationProvider;
+import com.backpacker.homework.exception.NotExistEmailException;
+import com.backpacker.homework.exception.UnMatchedPasswordException;
 import com.backpacker.homework.member.domian.entity.MemberEntity;
 import com.backpacker.homework.member.domian.repository.MemberRepository;
 import com.backpacker.homework.member.dto.MemberDto;
@@ -58,9 +60,9 @@ public class MemberService {
 
     public Map<String, String> loginMember(MemberLoginRequestDto requestDto){
         MemberEntity memberEntity = memberRepository.findByEmail(requestDto.getEmail())
-                .orElseThrow(() -> new IllegalArgumentException("가입되지 않은 E-MAIL 입니다."));
+                .orElseThrow(() -> new NotExistEmailException("가입되지 않은 E-MAIL 입니다."));
         if (!passwordEncoder.matches(requestDto.getPassword(), memberEntity.getPassword())) {
-            throw new IllegalArgumentException("잘못된 비밀번호입니다.");
+            throw new UnMatchedPasswordException("잘못된 비밀번호입니다.");
         }
 
         List<String> authorities = memberEntity.getAuthorities().stream().map(f->f.getAuthority()).collect(Collectors.toList());
