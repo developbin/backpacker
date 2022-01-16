@@ -7,7 +7,7 @@ CREATE TABLE order_master (
 	product_name	   varchar(100)        NOT NULL                COMMENT '제품명',
 	member_id  	 	   bigint        	   NOT NULL                COMMENT '회원 id',
 	payment_datetime   datetime        	   NOT NULL                COMMENT '결제일시',
-	create_datetime   datetime        	   NOT NULL                COMMENT '생성일시',
+	created_datetime   datetime        	   NOT NULL                COMMENT '생성일시',
 	UNIQUE KEY uk_order_no (order_no),
     CONSTRAINT pk_order PRIMARY KEY (order_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT='주문';
