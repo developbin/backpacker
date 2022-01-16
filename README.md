@@ -2,7 +2,7 @@
 * docker 설치 후 mysql 설치
 ```
 1. docker pull mysql:latest
-2. docker run --name mysql-container -e MYSQL_ROOT_PASSWORD=root -d -p 53307:3306
+2. docker run --name mysql-container -e MYSQL_ROOT_PASSWORD=root -d -p 53307:3306 mysql:latest 
 ```
 
 * mysql client에 접속한 후 backpacker 디비 생성
